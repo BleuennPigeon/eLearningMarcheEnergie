@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Apprenez à lire et comprendre une facture d'électricité grâce à cette facture interactive et pédagogique. Survolez chaque zone pour en savoir plus.">
+  <meta name="keywords" content="facture, électricité, énergie, pédagogie, consommation, kWh, EDF, tutoriel, apprentissage interactif">
+  <title>Facture d'électricité interactive</title>
+   <link rel="stylesheet" href="facture_interactive.css">
+  
+</head>
+<body>
+
+<h2>Analyse d'une facture d'électricité</h2>
+<p>Survolez les zones de la facture pour comprendre chaque élément.</p>
+
+<div class="container">
+  <img src="image/Facture-EDF-1.jpg" alt="Facture d'électricité" class="facture" width="800" height="1130">
+
+  <!-- Zones de texte (coordonnées  ajuster selon l'image) -->
+  <div class="zone zone-client">
+    <div class="tooltip tooltip-client">
+      <strong>Informations client :</strong><br>
+      Nom, adresse, numéro de contrat, référence client.
+    </div>
+  </div>
+
+  <div class="zone zone-puissance" >
+    <div class="tooltip tooltip-puissance">
+      <strong>Puissance souscrite :</strong><br>
+      Choisie selon vos besoins (ex. 6 kVA). Elle influe sur le coût de l abonnement.
+    </div>
+  </div>
+
+  <div class="zone zone-consommation" >
+    <div class="tooltip tooltip-consommation">
+      <strong>Consommation :</strong><br>
+      Indique les kWh consommés, en heures pleines et heures creuses.
+    </div>
+  </div>
+
+  <div class="zone zone-taxes" >
+    <div class="tooltip tooltip-taxes">
+      <strong>Taxes et contributions :</strong><br>
+      CTA, CSPE, TCFE et TVA. Ces montants sont réglementés par l État.
+    </div>
+  </div>
+
+  <div class="zone zone-total" >
+    <div class="tooltip tooltip-total">
+      <strong>Total à payer :</strong><br>
+      Montant total de la facture, toutes taxes comprises.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
