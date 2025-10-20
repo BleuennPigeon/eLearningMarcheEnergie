@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Apprenez à lire et comprendre une facture d'électricité grâce à cette facture interactive et pédagogique. Survolez chaque zone pour en savoir plus.">
   <meta name="keywords" content="facture, électricité, énergie, pédagogie, consommation, kWh, EDF, tutoriel, apprentissage interactif">
   <title>Facture d'électricité interactive</title>
@@ -14,43 +15,57 @@
 <p>Survolez les zones de la facture pour comprendre chaque élément.</p>
 
 <div class="container">
-  <img src="image/Facture-EDF-1.jpg" alt="Facture d'électricité" class="facture" width="800" height="1130">
+  <img src="image/Facture-EDF-1.jpg" alt="Facture d'électricité" class="facture" width="724" height="1024">
 
   <!-- Zones de texte (coordonnées  ajuster selon l'image) -->
   <div class="zone zone-client">
-    <div class="tooltip tooltip-client">
+    <div class="tooltip">
       <strong>Informations client :</strong><br>
       Nom, adresse, numéro de contrat, référence client.
     </div>
   </div>
 
-  <div class="zone zone-puissance" >
-    <div class="tooltip tooltip-puissance">
-      <strong>Puissance souscrite :</strong><br>
-      Choisie selon vos besoins (ex. 6 kVA). Elle influe sur le coût de l abonnement.
-    </div>
+  <div class="zone zone-montant-restant" >
+    <div class="tooltip">
+      <strong>Rappel du montant restant :</strong><br>
+        Somme due au titre de vos factures précédentes
+      </div>
   </div>
 
-  <div class="zone zone-consommation" >
-    <div class="tooltip tooltip-consommation">
-      <strong>Consommation :</strong><br>
-      Indique les kWh consommés, en heures pleines et heures creuses.
+ <div class="zone zone-facture">
+      <div class="tooltip">
+        <strong>Facture en cours :</strong><br>
+        Détail de la consommation (électricité, gaz, services, TVA...).
+      </div>
     </div>
-  </div>
 
-  <div class="zone zone-taxes" >
-    <div class="tooltip tooltip-taxes">
-      <strong>Taxes et contributions :</strong><br>
-      CTA, CSPE, TCFE et TVA. Ces montants sont réglementés par l État.
+    <div class="zone zone-total">
+      <div class="tooltip">
+        <strong>Total à payer :</strong><br>
+        Montant TTC à régler avant la date limite indiquée.
+      </div>
     </div>
-  </div>
 
-  <div class="zone zone-total" >
-    <div class="tooltip tooltip-total">
-      <strong>Total à payer :</strong><br>
-      Montant total de la facture, toutes taxes comprises.
+    <div class="zone zone-prochaines">
+      <div class="tooltip">
+        <strong>Les prochaines étapes :</strong><br>
+        Informations sur les prochaines factures et relevés.
+      </div>
     </div>
-  </div>
+
+    <div class="zone zone-paiement">
+      <div class="tooltip">
+        <strong>Comment payer :</strong><br>
+        Détails sur les modes de paiement disponibles (internet, téléphone, TIP...).
+      </div>
+    </div>
+
+    <div class="zone zone-prelevement">
+      <div class="tooltip">
+        <strong>Prélèvement automatique :</strong><br>
+        Informations sur votre compte bancaire et le montant prélevé.
+      </div>
+    </div>
 
 </div>
 
