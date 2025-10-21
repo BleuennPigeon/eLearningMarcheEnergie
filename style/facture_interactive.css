@@ -1,4 +1,3 @@
-/* === STYLES GÉNÉRAUX === */
 body {
   font-family: Arial, sans-serif;
   background: #f7f7f7;
@@ -17,7 +16,7 @@ p {
   color: #333;
 }
 
-/* === STRUCTURE === */
+/*  STRUCTURE  */
 .page {
   margin-bottom: 40px;
 }
@@ -35,7 +34,7 @@ p {
   border-radius: 8px;
 }
 
-/* === ZONES INTERACTIVES === */
+/*  ZONES INTERACTIVES  */
 .zone {
   position: absolute;
   border: 2px solid transparent;
@@ -47,7 +46,7 @@ p {
   background-color: rgba(0, 123, 255, 0.1);
 }
 
-/* === TOOLTIP === */
+/*  TOOLTIP  */
 .tooltip {
   display: none;
   position: absolute;
@@ -68,7 +67,7 @@ p {
   display: block;
 }
 
-/* === NUMÉROS INTERACTIFS === */
+/*  NUMÉROS */
 .numero {
   position: absolute;
   top: 4px;
@@ -94,88 +93,89 @@ p {
   background-color: #0056b3;
 }
 
-/* === POSITIONNEMENT RESPONSIVE === */
-
-/* ---- PAGE 1 ---- */
-.zone-client {
-  top: 8%;
-  left: 6%;
-  width: 35%;
-  height: 20%;
+/*  ZONE PAGE 1  */
+.zone-contrat {
+  top: 45%;
+  left: 3%;
+  width: 28%;
+  height: 17.5%;
 }
 
-.zone-facture {
-  top: 22%;
-  left: 55%;
-  width: 35%;
-  height: 12%;
+.zone-compteur {
+  top: 62.5%;
+  left: 3%;
+  width: 28%;
+  height: 7%;
 }
 
-.zone-total {
-  top: 35%;
-  left: 55%;
-  width: 35%;
-  height: 10%;
+.zone-fournisseur {
+  top: 1%;
+  left: 3%;
+  width: 29%;
+  height: 32%;
 }
 
-.zone-prochaines {
-  top: 50%;
-  left: 10%;
-  width: 75%;
-  height: 10%;
+.zone-recapFacture {
+  top: 30%;
+  left: 33%;
+  width: 63%;
+  height: 15%;
 }
 
-/* ---- PAGE 2 ---- */
+/* ZONE PAGE 2 */
 .zone-abonnement {
-  top: 10%;
-  left: 10%;
-  width: 75%;
-  height: 10%;
+  top: 16%;
+  left: 4%;
+  width: 90%;
+  height: 7%;
 }
 
 .zone-consommation {
-  top: 23%;
-  left: 10%;
-  width: 75%;
-  height: 15%;
+  top: 25%;
+  left: 4%;
+  width: 90%;
+  height: 10%;
 }
 
 .zone-taxes {
-  top: 40%;
-  left: 10%;
-  width: 75%;
+  top: 14%;
+  left: 80.5%;
+  width: 7%;
+  height: 26.5%;
+}
+
+.zone-TVA {
+  top: 14%;
+  left: 89%;
+  width: 5%;
+  height: 26.5%;
+}
+
+.zone-taxesContribution {
+  top: 36.5%;
+  left: 4%;
+  width: 90%;
+  height: 4%;
+}
+
+.zone-totalHT {
+  top: 40.5%;
+  left: 4%;
+  width: 83%;
+  height: 3%;
+}
+
+.zone-totTTC {
+  top: 47%;
+  left: 79%;
+  width: 15%;
   height: 10%;
 }
 
-.zone-total2 {
-  top: 55%;
-  left: 10%;
-  width: 75%;
-  height: 10%;
-}
-
-.zone-graphique {
-  top: 70%;
-  left: 10%;
-  width: 75%;
-  height: 15%;
-}
-
-.zone-prelevement {
-  top: 88%;
-  left: 10%;
-  width: 75%;
-  height: 10%;
-}
-
-/* --- Responsive --- */
+/*  Responsive  */
 @media (max-width: 600px) {
   .tooltip {
     font-size: 12px;
     width: 180px;
   }
-}
-
-.zone {
-  border: 2px dashed rgba(255, 0, 0, 0.5); /* aide visuelle temporaire */
 }

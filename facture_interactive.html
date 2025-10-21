@@ -6,7 +6,7 @@
   <meta name="description" content="Facture d'électricité interactive inspirée de Que Choisir : survolez les numéros pour comprendre chaque partie.">
   <meta name="keywords" content="facture, électricité, énergie, pédagogie, consommation, EDF, Que Choisir, apprentissage interactive">
   <title>Facture d'électricité interactive</title>
-  <link rel="stylesheet" href="facture_interactive.css">
+  <link rel="stylesheet" href="style/facture_interactive.css">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
   <div class="container">
     <img src="image/facturePage1.jpg" alt="Facture EDF - Page 1" class="facture" width="724" height="1024">
 
-    <div class="zone zone-client">
+    <div class="zone zone-contrat">
       <span class="numero">1</span>
       <div class="tooltip">
         <strong>Votre contrat :</strong><br>
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="zone zone-facture">
+    <div class="zone zone-compteur">
       <span class="numero">2</span>
       <div class="tooltip">
         <strong>Votre compteur :</strong><br>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="zone zone-total">
+    <div class="zone zone-fournisseur">
       <span class="numero">3</span>
       <div class="tooltip">
         <strong>Votre fournisseur :</strong><br>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="zone zone-prochaines">
+    <div class="zone zone-recapFacture">
       <span class="numero">4</span>
       <div class="tooltip">
         <strong>Récapitulatif de la facture :</strong><br>
@@ -61,7 +61,9 @@
       <span class="numero">5</span>
       <div class="tooltip">
         <strong>Abonnement :</strong><br>
-        Partie fixe de la facture, dépendant de la puissance souscrite et de l’option tarifaire. Inclut le tarif d’acheminement (TURPE).
+        Partie fixe de la facture, payée même sans consommation. Elle dépend de la puissance souscrite et de l’option tarifaire choisie.<br><br>
+        Cette ligne inclut la part « acheminement » (TURPE), qui finance le transport et la distribution de l’électricité ainsi que l’entretien du réseau (Enedis).<br><br>
+        À noter : depuis le 1er août 2025, le taux de TVA sur l’abonnement est passé de 5,5 % à 20 %.<br>
       </div>
     </div>
 
@@ -69,41 +71,56 @@
       <span class="numero">6</span>
       <div class="tooltip">
         <strong>Consommation :</strong><br>
-        Montre les kWh consommés, selon relevé réel ou estimé, et la répartition Heures Pleines / Creuses.
+        Partie variable de la facture, calculée à partir des kilowattheures (kWh) consommés pendant la période de facturation.<br><br>
+        Les relevés peuvent être réels ou estimés. En option Heures Pleines / Heures Creuses, la facture distingue les volumes consommés dans chaque période.<br><br>
+        Une part d’acheminement proportionnelle à la consommation y est également incluse.<br>
       </div>
     </div>
 
     <div class="zone zone-taxes">
       <span class="numero">7</span>
       <div class="tooltip">
-        <strong>Prix hors taxes :</strong><br>
-        Les tarifs d’abonnement et de kWh sont affichés hors taxes. Les taxes seront ajoutées ensuite.
-      </div>
+        <strong>Prix hors taxes (HT) :</strong><br>
+        Le tarif de l’abonnement et celui du kWh sont indiqués hors TVA et hors autres taxes.<br>
+        Ces montants comprennent déjà la part acheminement vers le gestionnaire de réseau.<br>
+       </div>
     </div>
 
-    <div class="zone zone-total2">
+    <div class="zone zone-TVA">
       <span class="numero">8</span>
       <div class="tooltip">
         <strong>TVA :</strong><br>
-        20 % sur la consommation, 5,5 % sur l’abonnement (taux soumis à évolution réglementaire).
+        Jusqu’à 2025, deux taux s’appliquaient : 20 % sur la consommation et 5,5 % sur l’abonnement. Depuis le 1er août 2025, un taux unique de 20 % s’applique sur l’ensemble.<br>
       </div>
     </div>
 
-    <div class="zone zone-graphique">
+    <div class="zone zone-taxesContribution">
       <span class="numero">9</span>
       <div class="tooltip">
         <strong>Taxes et contributions :</strong><br>
-        CTA, accise sur l’électricité, taxes locales. Ensemble, elles représentent près d’un tiers de la facture.
+        Ensemble des taxes appliquées à l’électricité, représentant environ un tiers du montant total.<br><br>
+        • <strong>CTA</strong> : Contribution Tarifaire d’Acheminement, qui finance le régime de retraite des agents des industries électriques et gazières.<br>
+        • <strong>Accise sur l’électricité</strong> : remplace la CSPE et finance les énergies renouvelables, la péréquation tarifaire et l’aide sociale à l’énergie.<br>
+        • <strong>Taxes locales</strong> : appliquées par les collectivités, selon le lieu de consommation.<br>
       </div>
     </div>
 
-    <div class="zone zone-prelevement">
+    <div class="zone zone-totalHT">
       <span class="numero">10</span>
       <div class="tooltip">
-        <strong>Total TTC :</strong><br>
-        Montant global à payer après application des taxes et déduction des acomptes éventuels.
+        <strong>Montant total HT :</strong><br>
+        Addition des montants <em>hors TVA</em> : abonnement HT + consommation HT + taxes HT (CTA, accise sur l’électricité).<br>
       </div>
     </div>
+
+    <div class="zone zone-totTTC">
+      <span class="numero">11</span>
+      <div class="tooltip">
+        <strong>Total TTC :</strong><br>
+        Montant global à payer, intégrant les prix HT, la TVA et les différentes taxes. Ce total tient compte des éventuels acomptes ou régularisations.<br>
+      </div>
+    </div>
+
   </div>
 </section>
 

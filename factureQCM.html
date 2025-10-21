@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QCM - Facture d'électricité</title>
+  <link rel="stylesheet" href="style/factureQCM.css">
+</head>
+
+<body>
+
+  <h2>QCM : Comprendre et lire une facture d’électricité</h2>
+  <p>Observe attentivement les deux pages de la facture ci-dessous et réponds aux questions correspondantes.</p>
+
+  <!--  PAGE 1  -->
+  <section class="page">
+    <div class="container">
+      <img src="image/facturePage1.jpg" alt="Facture EDF - Page 1" class="facture">
+      <div class="zone zone-contrat"><span class="numero">1</span></div>
+      <div class="zone zone-compteur"><span class="numero">2</span></div>
+      <div class="zone zone-fournisseur"><span class="numero">3</span></div>
+      <div class="zone zone-recapFacture"><span class="numero">4</span></div>
+    </div>
+  </section>
+
+  <!--  QCM PAGE 1  -->
+  <section class="qcm-section">
+    <h3>Questions sur la page 1</h3>
+
+    <div class="question">
+      <h4>1️⃣ À quoi sert la zone 1 ?</h4>
+      <label><input type="radio" name="q1" value="A"> À présenter les informations du contrat (client, adresse...)</label>
+      <label><input type="radio" name="q1" value="B"> À indiquer la consommation totale en kWh</label>
+      <label><input type="radio" name="q1" value="C"> À afficher les taxes locales</label>
+    </div>
+
+    <div class="question">
+      <h4>2️⃣ À quoi sert la zone 2 ?</h4>
+      <label><input type="radio" name="q2" value="A"> À présenter le Point de Livraison (PDL) et le type de compteur</label>
+      <label><input type="radio" name="q2" value="B"> À afficher le total TTC</label>
+      <label><input type="radio" name="q2" value="C"> À indiquer les coordonnées bancaires du client</label>
+    </div>
+
+    <div class="question">
+      <h4>3️⃣ À quoi correspond la zone 3 ?</h4>
+      <label><input type="radio" name="q3" value="A"> Au fournisseur d’électricité et aux contacts utiles</label>
+      <label><input type="radio" name="q3" value="B"> Aux taxes et contributions</label>
+      <label><input type="radio" name="q3" value="C"> À la consommation du client</label>
+    </div>
+
+    <div class="question">
+      <h4>4️⃣ Quelle est la puissance souscrite du contrat ?</h4>
+      <label><input type="radio" name="q4" value="A"> 3 kVA</label>
+      <label><input type="radio" name="q4" value="B"> 6 kVA</label>
+      <label><input type="radio" name="q4" value="C"> 9 kVA</label>
+    </div>
+
+    <div class="question">
+      <h4>5️⃣ Quel est le montant total TTC à payer sur cette facture ?</h4>
+      <label><input type="radio" name="q5" value="A"> 759,11 €</label>
+      <label><input type="radio" name="q5" value="B"> 130,00 €</label>
+      <label><input type="radio" name="q5" value="C"> 45,08 €</label>
+    </div>
+  </section>
+
+  <!--  PAGE 2  -->
+  <section class="page">
+    <div class="container">
+      <img src="image/facturePage2.png" alt="Facture EDF - Page 2" class="facture">
+      <div class="zone zone-abonnement"><span class="numero">5</span></div>
+      <div class="zone zone-consommation"><span class="numero">6</span></div>
+      <div class="zone zone-taxes"><span class="numero">7</span></div>
+      <div class="zone zone-TVA"><span class="numero">8</span></div>
+      <div class="zone zone-taxesContribution"><span class="numero">9</span></div>
+      <div class="zone zone-totalHT"><span class="numero">10</span></div>
+      <div class="zone zone-totTTC"><span class="numero">11</span></div>
+    </div>
+  </section>
+
+  <!--  QCM PAGE 2  -->
+  <section class="qcm-section">
+    <h3>Questions sur la page 2</h3>
+
+    <div class="question">
+      <h4>6️⃣ À quoi correspond la zone 5 ?</h4>
+      <label><input type="radio" name="q6" value="A"> À la partie fixe de la facture : l’abonnement</label>
+      <label><input type="radio" name="q6" value="B"> À la consommation en kWh</label>
+      <label><input type="radio" name="q6" value="C"> Aux coordonnées du client</label>
+    </div>
+
+    <div class="question">
+      <h4>7️⃣ Que représente la zone 8 ?</h4>
+      <label><input type="radio" name="q7" value="A"> La TVA applicable sur la consommation et l’abonnement</label>
+      <label><input type="radio" name="q7" value="B"> Le Point de Livraison (PDL)</label>
+      <label><input type="radio" name="q7" value="C"> Les taxes locales</label>
+    </div>
+
+    <div class="question">
+      <h4>8️⃣ Quelle est la période de consommation indiquée ?</h4>
+      <label><input type="radio" name="q8" value="A"> Du 07/03/2024 au 06/04/2025</label>
+      <label><input type="radio" name="q8" value="B"> Du 07/03/2024 au 31/01/2025</label>
+      <label><input type="radio" name="q8" value="C"> Du 31/05/2024 au 03/05/2025</label>
+    </div>
+
+    <div class="question">
+      <h4>9️⃣ Quelle est la consommation totale facturée (en kWh) ?</h4>
+      <label><input type="radio" name="q9" value="A"> 3 046 kWh</label>
+      <label><input type="radio" name="q9" value="B"> 7 977 kWh</label>
+      <label><input type="radio" name="q9" value="C"> 1 681 kWh</label>
+    </div>
+
+    <div class="question">
+      <h4>🔟 Quel est le montant total de la TVA ?</h4>
+      <label><input type="radio" name="q10" value="A"> 91,39 €</label>
+      <label><input type="radio" name="q10" value="B"> 130,00 €</label>
+      <label><input type="radio" name="q10" value="C"> 121,73 €</label>
+    </div>
+
+    <button id="btnCorrection">Corriger mes réponses</button>
+    <button id="btnVoirCorrection" onclick="window.location.href='facture_interactive.html'">Voir la correction interactive</button>
+  </section>
+
+  <!-- Reponse QCM -->
+  <script>
+    const bonnesReponses = {
+      q1: "A",
+      q2: "A",
+      q3: "A",
+      q4: "B",
+      q5: "C",
+      q6: "A",
+      q7: "A",
+      q8: "A",
+      q9: "A",
+      q10: "B"
+    };
+
+    document.getElementById("btnCorrection").addEventListener("click", function() {
+      let score = 0;
+      const total = Object.keys(bonnesReponses).length;
+
+      for (const [question, bonne] of Object.entries(bonnesReponses)) {
+        const choix = document.querySelectorAll(`input[name="${question}"]`);
+        choix.forEach(option => {
+          option.parentElement.classList.remove("correct", "incorrect");
+          if (option.checked) {
+            if (option.value === bonne) {
+              option.parentElement.classList.add("correct");
+              score++;
+            } else {
+              option.parentElement.classList.add("incorrect");
+            }
+          } else if (option.value === bonne) {
+            option.parentElement.classList.add("correct");
+          }
+        });
+      }
+
+      alert(`Correction effectuée ✅\nScore : ${score}/${total}`);
+      document.getElementById("btnVoirCorrection").style.display = "inline-block";
+    });
+  </script>
+
+</body>
+</html>

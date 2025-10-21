@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  color: #004080;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/*  Structure générale */
+.page {
+  margin-bottom: 40px;
+}
+
+.container {
+  position: relative; 
+  display: inline-block;
+  width: 90%;
+  max-width: 724px;
+}
+
+.facture {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+}
+
+/*  ZONES NUMEROTE */
+.zone {
+  position: absolute;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.zone:hover {
+  border-color: #007BFF;
+  background-color: rgba(0, 123, 255, 0.08);
+}
+
+.numero {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 5;
+  cursor: default;
+}
+
+/*  Position des zones  */
+
+/* PAGE 1 */
+.zone-contrat { top: 45%; left: 3%; width: 28%; height: 17.5%; }
+.zone-compteur { top: 62.5%; left: 3%; width: 28%; height: 7%; }
+.zone-fournisseur { top: 1%; left: 3%; width: 29%; height: 32%; }
+.zone-recapFacture { top: 30%; left: 33%; width: 63%; height: 15%; }
+
+/* PAGE 2 */
+.zone-abonnement { top: 16%; left: 4%; width: 90%; height: 7%; }
+.zone-consommation { top: 25%; left: 4%; width: 90%; height: 10%; }
+.zone-taxes { top: 14%; left: 80.5%; width: 7%; height: 26.5%; }
+.zone-TVA { top: 14%; left: 89%; width: 5%; height: 26.5%; }
+.zone-taxesContribution { top: 36.5%; left: 4%; width: 90%; height: 4%; }
+.zone-totalHT { top: 40.5%; left: 4%; width: 83%; height: 3%; }
+.zone-totTTC { top: 47%; left: 79%; width: 15%; height: 10%; }
+
+/*  QCM  */
+.qcm-section {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 700px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question h3 {
+  color: #004080;
+  margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/*  Couleurs de correction  */
+.correct { background-color: #c9f7c2; }
+.incorrect { background-color: #f9c2c2; }
+
+/*  Boutons  */
+#btnCorrection,
+#btnVoirCorrection {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#btnCorrection:hover,
+#btnVoirCorrection:hover {
+  background-color: #0056b3;
+}
+
+#btnVoirCorrection {
+  display: none;
+}
+
+/*  Responsive  */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .numero {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .qcm-section {
+    padding: 15px;
+    max-width: 95%;
+  }
+}
