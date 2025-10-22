@@ -158,3 +158,34 @@ label {
     max-width: 95%;
   }
 }
+
+/* FOOTER */
+.site-footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  color: #333;
+  border-top: 1px solid #ccc;
+}
+
+.site-footer a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer p {
+  margin: 8px 0;
+}
+
+.footer-note {
+  font-size: 10px;
+  color: #777;
+  margin-top: 9px;
+}
+
