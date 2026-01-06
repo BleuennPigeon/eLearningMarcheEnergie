@@ -152,6 +152,17 @@ body{
   font-size: 18px;
 }
 
+.lessons.locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.lessons.locked a,
+.lessons.locked button {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 /* Liens bleus */
 .lessons a{
   color:#1a67c8;
