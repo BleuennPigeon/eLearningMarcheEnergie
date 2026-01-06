@@ -1,0 +1,203 @@
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body{
+  margin:0;
+  background:#f4f6f8; /* fond gris clair comme la capture */
+  color:#111;
+  font-family: "Courier New", Courier, monospace; /* aspect texte de la capture */
+  line-height:1.85;
+}
+
+/* ===== Header bleu clair ===== */
+.site-header{
+  background:#b9d3ea; /* bleu clair */
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 18px 12px;
+}
+
+/* Brand (approx visuel) */
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #2c7bbf 0 52%, #f6c400 53% 100%);
+  flex: 0 0 auto;
+}
+
+.brand-text-left{
+  margin-right:auto;
+  margin-left:14px;
+  color:#1c4c73;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.15;
+  font-weight:700;
+  font-size: 26px;
+}
+
+.brand-small{ font-size: 26px; }
+
+.brand-text-right{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: 44px;
+  color:#3b5f86;
+  display:flex;
+  gap:14px;
+  align-items:baseline;
+}
+
+.brand-d, .brand-a{
+  color:#f1c400;
+  font-weight:900;
+}
+
+/* Menu */
+.nav{
+  margin-top: 8px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+.nav a{
+  color:#2b5f88;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
+
+/* ===== Layout page ===== */
+.page{
+  padding: 34px 18px 60px;
+}
+
+.layout{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: 1fr 260px;
+  gap: 30px;
+  align-items:start;
+}
+
+/* ===== Bloc blanc centré ===== */
+.content-card{
+  background:#fff;
+  border-radius: 10px;
+  padding: 34px 44px 46px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+
+/* Bandeau du cours */
+.course-banner{
+  width: 86%;
+  margin: 8px auto 34px;
+  text-align:center;
+  background:#5f5f5f;
+  color:#f4b400; /* jaune/orange */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  padding: 10px 12px;
+  border: 4px solid #111a74; /* bleu foncé */
+  border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.18) inset;
+}
+
+/* Texte */
+.content p{
+  margin: 0 0 26px;
+  font-size: 18px;
+}
+
+/* Titre module (bleu foncé, gras) */
+.module-title{
+  margin: 42px 0 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color:#101a73; /* bleu foncé */
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+/* Listes leçons avec petits cercles */
+.lessons{
+  margin: 0 0 26px 0;
+  padding-left: 24px;
+  list-style-type: circle;
+}
+
+.lessons li{
+  margin: 2px 0;
+  font-size: 18px;
+}
+
+/* Liens bleus */
+.lessons a{
+  color:#1a67c8;
+  text-decoration:none;
+  font-family: Arial, Helvetica, sans-serif; /* liens plus "web" comme sur capture */
+}
+
+.lessons a:hover{
+  text-decoration: underline;
+}
+
+/* ===== Sidebar support ===== */
+.sidebar{
+  padding-top: 40px;
+}
+
+.support-box{
+  text-align:center;
+  background: transparent;
+}
+
+.support-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 3px solid #111;
+  background: #ffd400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+
+.support-text{
+  margin: 10px 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#333;
+  line-height:1.3;
+  font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .layout{ grid-template-columns: 1fr; }
+  .sidebar{ padding-top: 10px; }
+  .course-banner{ width: 100%; }
+  .brand-text-right{ font-size: 34px; }
+}
