@@ -6,6 +6,85 @@ body {
   padding: 20px;
 }
 
+
+/* ===== Header bleu clair ===== */
+.site-header{
+  background:#b9d3ea; /* bleu clair */
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 18px 12px;
+}
+
+/* Brand (approx visuel) */
+.brand{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #2c7bbf 0 52%, #f6c400 53% 100%);
+  flex: 0 0 auto;
+}
+
+.brand-text-left{
+  margin-right:auto;
+  margin-left:14px;
+  color:#1c4c73;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:1.15;
+  font-weight:700;
+  font-size: 26px;
+}
+
+.brand-small{ font-size: 26px; }
+
+.brand-text-right{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: 44px;
+  color:#3b5f86;
+  display:flex;
+  gap:14px;
+  align-items:baseline;
+}
+
+.brand-d, .brand-a{
+  color:#f1c400;
+  font-weight:900;
+}
+
+/* Menu */
+.nav{
+  margin-top: 8px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+.nav a{
+  color:#2b5f88;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  text-decoration:underline;
+}
+
+/* page */
 h2 {
   color: #004080;
   margin-bottom: 8px;
