@@ -7,15 +7,71 @@
   <link rel="stylesheet" href="style/home.css" />
 </head>
 
-<!-- Verrouillage des modules-->
+<!-- Verrouillage des modules et QCM-->
 <script>
   const TOTAL_MODULES = 6;
 
-  function finishModule(moduleNumber) {
-    localStorage.setItem("moduleCompleted", String(moduleNumber));
-    location.reload();
-  }
+  // --- Banque de QCM : 1 QCM par module ---
+  // correct = index de la bonne réponse (0,1,2,...)
+  // pass = X bonnes réponses minimum pour valider le module
+  const QCM_BY_MODULE = {
+    1: {
+      title: "Quiz - Module 0",
+      pass: 2,
+      questions: [
+        { q: "Une facture d'électricité dépend principalement :", a: ["Du soleil", "De la consommation (kWh)", "De la couleur du compteur"], correct: 1 },
+        { q: "Le kWh correspond à :", a: ["Une puissance", "Une énergie", "Une tension"], correct: 1 },
+        { q: "Le prix peut varier selon :", a: ["L'offre/contrat", "La taille du frigo", "La météo uniquement"], correct: 0 }
+      ]
+    },
+    2: {
+      title: "Quiz - Module 1",
+      pass: 2,
+      questions: [
+        { q: "La puissance souscrite s'exprime généralement en :", a: ["kVA", "kWh", "€"], correct: 0 },
+        { q: "Le TURPE correspond :", a: ["À une taxe", "Au tarif d’acheminement", "À un type de panneau solaire"], correct: 1 },
+        { q: "Le kWh sur la facture représente :", a: ["L'énergie consommée", "La puissance maximale", "La fréquence"], correct: 0 }
+      ]
+    },
+    3: {
+      title: "Quiz - Module 2",
+      pass: 2,
+      questions: [
+        { q: "Le marché de l’électricité inclut :", a: ["Production, transport, distribution, fourniture", "Uniquement la production", "Uniquement la distribution"], correct: 0 },
+        { q: "RTE est associé plutôt à :", a: ["Transport (réseau haute tension)", "Fourniture", "Production nucléaire"], correct: 0 },
+        { q: "Les prix spot se forment :", a: ["Sur un marché de court terme", "Une fois par an", "Par tirage au sort"], correct: 0 }
+      ]
+    },
+    4: {
+      title: "Quiz - Module 3",
+      pass: 2,
+      questions: [
+        { q: "Réduire la puissance souscrite permet :", a: ["De baisser l’abonnement", "De baisser automatiquement la consommation", "De produire plus"], correct: 0 },
+        { q: "Un dépassement de puissance peut causer :", a: ["Des coupures/délestage", "Plus de soleil", "Une hausse de tension permanente"], correct: 0 },
+        { q: "Optimiser la consommation, c’est :", a: ["Déplacer certains usages", "Toujours consommer plus la nuit", "Changer de couleur de câble"], correct: 0 }
+      ]
+    },
+    5: {
+      title: "Quiz - Module 4",
+      pass: 2,
+      questions: [
+        { q: "L’autoconsommation signifie :", a: ["Consommer sa propre production", "Revendre toute sa production", "Ne plus être raccordé au réseau"], correct: 0 },
+        { q: "Une énergie renouvelable :", a: ["Se renouvelle à l’échelle humaine", "Est toujours gratuite", "N’a aucun impact"], correct: 0 },
+        { q: "Un onduleur sert à :", a: ["Convertir DC en AC", "Stocker l’énergie", "Augmenter la fréquence"], correct: 0 }
+      ]
+    },
+    6: {
+      title: "Quiz - Module 5",
+      pass: 2,
+      questions: [
+        { q: "Un contrat à prix fixe :", a: ["Stabilise le prix sur une durée", "Change toutes les heures", "Dépend du vent"], correct: 0 },
+        { q: "La gestion du risque vise à :", a: ["Réduire l’exposition aux variations", "Augmenter l’incertitude", "Éviter de suivre les prix"], correct: 0 },
+        { q: "Un prix indexé peut :", a: ["Suivre un marché/indice", "Être toujours plus bas", "Être illégal"], correct: 0 }
+      ]
+    }
+  };
 
+  // --- Verrouillage des modules (ton principe) ---
   document.addEventListener("DOMContentLoaded", () => {
     const completed = parseInt(localStorage.getItem("moduleCompleted") || "0", 10);
 
@@ -23,14 +79,140 @@
       const lessons = document.querySelector(`.lessons[data-module="${i}"]`);
       if (!lessons) continue;
 
-      // On autorise seulement le module suivant: completed+1
       if (i > completed + 1) {
         lessons.classList.add("locked");
+      } else {
+        lessons.classList.remove("locked");
       }
     }
   });
+
+  // --- État courant du QCM affiché ---
+  let currentModule = null;
+
+  function openQcm(moduleNumber) {
+    currentModule = moduleNumber;
+
+    const qcm = QCM_BY_MODULE[moduleNumber];
+    if (!qcm) {
+      alert("Aucun QCM défini pour ce module.");
+      return;
+    }
+
+    document.getElementById("qcmTitle").textContent = qcm.title;
+    document.getElementById("qcmSubtitle").textContent =
+      `Réussite : au moins ${qcm.pass} bonne(s) réponse(s) sur ${qcm.questions.length}.`;
+
+    const form = document.getElementById("qcmForm");
+    form.innerHTML = "";
+
+    qcm.questions.forEach((item, idx) => {
+      const fieldset = document.createElement("fieldset");
+      fieldset.className = "question";
+
+      const legend = document.createElement("legend");
+      legend.textContent = `${idx + 1}. ${item.q}`;
+      fieldset.appendChild(legend);
+
+      item.a.forEach((choice, cIdx) => {
+        const label = document.createElement("label");
+        label.innerHTML = `
+          <input type="radio" name="q${idx}" value="${cIdx}">
+          ${choice}
+        `;
+        fieldset.appendChild(label);
+      });
+
+      form.appendChild(fieldset);
+    });
+
+    const result = document.getElementById("qcmResult");
+    result.textContent = "";
+    result.className = "qcm-result";
+
+    const modal = document.getElementById("qcmModal");
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  }
+
+  function closeQcm() {
+    currentModule = null;
+    const modal = document.getElementById("qcmModal");
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  function submitQcm() {
+    if (!currentModule) return;
+
+    const qcm = QCM_BY_MODULE[currentModule];
+    const form = document.getElementById("qcmForm");
+    const result = document.getElementById("qcmResult");
+
+    let score = 0;
+    let answered = 0;
+
+    qcm.questions.forEach((item, idx) => {
+      const picked = form.querySelector(`input[name="q${idx}"]:checked`);
+      if (picked) {
+        answered++;
+        if (parseInt(picked.value, 10) === item.correct) score++;
+      }
+    });
+
+    // Optionnel: exiger que tout soit répondu
+    if (answered < qcm.questions.length) {
+      result.textContent = "Réponds à toutes les questions avant de valider.";
+      result.className = "qcm-result ko";
+      return;
+    }
+
+    if (score >= qcm.pass) {
+      result.textContent = `✅ Bravo ! Score: ${score}/${qcm.questions.length}. Module validé.`;
+      result.className = "qcm-result ok";
+
+      // On valide le module
+      localStorage.setItem("moduleCompleted", String(currentModule));
+
+      // On ferme puis refresh pour déverrouiller le suivant
+      setTimeout(() => {
+        closeQcm();
+        location.reload();
+      }, 600);
+    } else {
+      result.textContent = `❌ Score insuffisant: ${score}/${qcm.questions.length}. Minimum: ${qcm.pass}.`;
+      result.className = "qcm-result ko";
+    }
+  }
+
+  // Optionnel: fermer au clavier (ESC)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeQcm();
+  });
 </script>
 
+
+<!-- POPUP QCM (Modal) -->
+<div id="qcmModal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" onclick="closeQcm()"></div>
+
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="qcmTitle">
+    <h3 id="qcmTitle">Quiz de validation</h3>
+    <p id="qcmSubtitle"></p>
+
+    <div class="modal-body">
+        <form id="qcmForm"></form>
+    </div>
+
+
+    <div class="modal-actions">
+      <button type="button" class="btn" onclick="closeQcm()">Annuler</button>
+      <button type="button" class="btn primary" onclick="submitQcm()">Valider</button>
+    </div>
+
+    <p id="qcmResult" class="qcm-result"></p>
+  </div>
+</div>
 
 
 <body>
@@ -81,7 +263,7 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Etude de cas</a></li>
             <li><a href="#">Etude de cas corrigée</a></li>
-            <button onclick="finishModule(1)">Module terminé</button>
+            <button type="button" onclick="openQcm(1)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="2">MODULE 1 : Lire et comprendre sa facture d'électricité</h3>
@@ -89,7 +271,7 @@
             <li><a href="module1/DiapoCours1.pptx" download>Leçon</a></li>
             <li><a href="module1/Vidéo facture d'électricité.mp4" download>Video</a></li>
             <li><a href="module1/factureQCM.html" target="_blank">Facture interactive</a></li>
-            <button onclick="finishModule(2)">Module terminé</button>
+            <button type="button" onclick="openQcm(2)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="3">MODULE 2 : Fonctionnement du marché de l'électricité</h3>
@@ -98,7 +280,7 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Etude de cas</a></li>
             <li><a href="#">Etude de cas corrigée</a></li>
-            <button onclick="finishModule(3)">Module terminé</button>
+            <button type="button" onclick="openQcm(3)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="4">MODULE 3 : Optimiser la consommation et la puissance souscrite</h3>
@@ -107,7 +289,7 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Etude de cas</a></li>
             <li><a href="#">Etude de cas corrigée</a></li>
-            <button onclick="finishModule(4)">Module terminé</button>
+            <button type="button" onclick="openQcm(4)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="5">MODULE 4 : Autoconsommation et renouvelables</h3>
@@ -116,7 +298,7 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Etude de cas</a></li>
             <li><a href="#">Etude de cas corrigée</a></li>
-            <button onclick="finishModule(5)">Module terminé</button>
+            <button type="button" onclick="openQcm(5)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="6">MODULE 5 : Stratégie d'achat et gestion du risque</h3>
@@ -125,7 +307,7 @@
             <li><a href="#">Video</a></li>
             <li><a href="#">Etude de cas</a></li>
             <li><a href="#">Etude de cas corrigée</a></li>
-            <button onclick="finishModule(6)">Module terminé</button>
+            <button type="button" onclick="openQcm(6)">Module terminé</button>
           </ul>
         </div>
       </section>

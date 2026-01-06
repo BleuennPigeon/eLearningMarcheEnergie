@@ -140,6 +140,50 @@ body{
   text-transform: uppercase;
 }
 
+/* POPUP QCM (Modal) */
+.modal { display:none; position:fixed; inset:0; z-index:9999; }
+.modal.show { display:block; }
+
+.modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.55); }
+
+.modal-dialog {
+  position: relative;
+  max-width: 720px;
+  width: 92%;
+  max-height: 90vh;          
+  margin: 5vh auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;   
+}
+
+/* Zone scrollable */
+.modal-body {
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-bottom: 12px;
+}
+
+.modal-dialog h3 { margin: 0 0 8px; }
+#qcmSubtitle { margin: 0 0 16px; opacity: .8; }
+
+.question { padding: 12px; border:1px solid #eee; border-radius: 12px; margin-bottom: 10px; }
+.question legend { font-weight: 700; margin-bottom: 8px; }
+.question label { display:block; margin: 6px 0; cursor:pointer; }
+
+.modal-actions { display:flex; gap:10px; justify-content:flex-end; padding-top: 10px; border-top: 1px solid #eee; }
+
+.btn { padding:10px 14px; border-radius: 10px; border:1px solid #ddd; background:#f7f7f7; cursor:pointer; }
+.btn.primary { background:#111; color:#fff; border-color:#111; }
+
+.qcm-result { margin-top: 10px; font-weight: 700; }
+.qcm-result.ok { color: #0a7a2a; }
+.qcm-result.ko { color: #b00020; }
+
+
 /* Listes leçons avec petits cercles */
 .lessons{
   margin: 0 0 26px 0;
@@ -155,6 +199,7 @@ body{
 .lessons.locked {
   opacity: 0.4;
   pointer-events: none;
+  filter: grayscale(1);
 }
 
 .lessons.locked a,
