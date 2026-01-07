@@ -211,6 +211,16 @@ function openCertificate() {
   window.location.href = "certificat.html";
 }
 
+//Reset la progression
+function resetProgressDemo() {
+  localStorage.removeItem("moduleCompleted");
+  localStorage.removeItem("certUnlocked");
+  localStorage.removeItem("certRef");
+  localStorage.removeItem("certFirstName");
+  localStorage.removeItem("certLastName");
+  location.reload();
+}
+
 
 </script>
 
@@ -365,6 +375,11 @@ function openCertificate() {
           <p class="support-text">Ce site vous est utile ?</p>
           <p class="support-text"><strong>Un don pour le soutenir</strong></p>
         </div>
+
+        <button type="button" class="btn" onclick="resetProgressDemo()">
+           Réinitialiser la progression (démo)
+        </button>
+
       </aside>
 
     </div>

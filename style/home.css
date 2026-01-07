@@ -252,7 +252,13 @@ body{
 
 .cert-section { margin-top: 24px; padding-top: 18px; border-top: 1px solid #eee; }
 
-
+.cert-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 16px;
+}
 
 .cert-form input{
   padding:10px 12px;
