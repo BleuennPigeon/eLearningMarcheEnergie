@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-FR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -71,7 +71,7 @@
     }
   };
 
-  // --- Verrouillage des modules (ton principe) ---
+  // --- Verrouillage des modules ---
   document.addEventListener("DOMContentLoaded", () => {
     const completed = parseInt(localStorage.getItem("moduleCompleted") || "0", 10);
 
@@ -85,6 +85,7 @@
         lessons.classList.remove("locked");
       }
     }
+    updateCertificationUI();
   });
 
   // --- État courant du QCM affiché ---
@@ -160,7 +161,7 @@
       }
     });
 
-    // Optionnel: exiger que tout soit répondu
+    // exiger que tout soit répondu
     if (answered < qcm.questions.length) {
       result.textContent = "Réponds à toutes les questions avant de valider.";
       result.className = "qcm-result ko";
@@ -173,6 +174,11 @@
 
       // On valide le module
       localStorage.setItem("moduleCompleted", String(currentModule));
+
+      //validation de tous les modules deverouille la certification
+      if (currentModule === TOTAL_MODULES) {
+        localStorage.setItem("certUnlocked", "1");
+      }
 
       // On ferme puis refresh pour déverrouiller le suivant
       setTimeout(() => {
@@ -189,6 +195,23 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeQcm();
   });
+
+function updateCertificationUI() {
+  const unlocked = localStorage.getItem("certUnlocked") === "1";
+  const section = document.getElementById("certSection");
+  if (!section) return;
+
+  section.hidden = !unlocked;
+}
+
+function openCertificate() {
+  const unlocked = localStorage.getItem("certUnlocked") === "1";
+  if (!unlocked) return;
+
+  window.location.href = "certificat.html";
+}
+
+
 </script>
 
 
@@ -202,8 +225,7 @@
 
     <div class="modal-body">
         <form id="qcmForm"></form>
-    </div>
-
+      </div>
 
     <div class="modal-actions">
       <button type="button" class="btn" onclick="closeQcm()">Annuler</button>
@@ -213,7 +235,6 @@
     <p id="qcmResult" class="qcm-result"></p>
   </div>
 </div>
-
 
 <body>
   <!-- HEADER -->
@@ -312,6 +333,31 @@
         </div>
       </section>
 
+      <!-- CERTIFICATION (cachée tant que tous les modules ne sont pas validé) -->
+<section id="certSection" class="cert-section" hidden>
+  <h3>Certification</h3>
+  <p>
+    Bravo, vous avez terminé la formation.
+    Vous pouvez maintenant générer votre certificat.
+  </p>
+
+    <button
+      type="button"
+      class="btn primary"
+      onclick="openCertificate()"
+    >
+      Ouvrir mon certificat
+    </button>
+
+  <p class="cert-hint">
+    Le certificat s’ouvre dans une page dédiée, optimisée pour l’impression A4
+    et l’export PDF.
+  </p>
+</section>
+
+
+
+      
       <!-- SIDEBAR -->
       <aside class="sidebar">
         <div class="support-box">

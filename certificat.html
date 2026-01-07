@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificat de formation</title>
+  <link rel="stylesheet" href="style/certificat.css" />
+</head>
+
+<!-- HEADER -->
+<header class="site-header no-print">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo"></div>
+
+      <div class="brand-text-left">
+        <div class="brand-small">Cahier des</div>
+        <div class="brand-small">transitions</div>
+      </div>
+
+      <div class="brand-text-right">
+        <span class="brand-big"><span class="brand-d">D</span>EMAIN</span>
+        <span class="brand-big"><span class="brand-a">A</span>UTREMENT</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="home.html">Parcourir le contenu</a>
+      <a href="#">Transition énergétique</a>
+      <a href="#">Transition Numérique</a>
+      <a href="#">Partenaires</a>
+      <a href="#">Produits recommandés</a>
+      <a href="#">À propos</a>
+    </nav>
+  </div>
+</header>
+
+
+<body>
+  <!-- BARRE D'ACTIONS (non imprimée) -->
+  <header class="topbar no-print">
+    <div class="topbar-inner"></div>
+
+      <div class="topbar-center">
+        <input id="firstName" type="text" placeholder="Prénom" autocomplete="given-name" />
+        <input id="lastName" type="text" placeholder="Nom" autocomplete="family-name" />
+        <button class="btn primary" type="button" onclick="applyName()">Mettre à jour</button>
+      </div>
+
+      <div class="topbar-right">
+        <a class="btn" href="home.html">← Retour</a>
+        <button class="btn" type="button" onclick="window.print()">Imprimer</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MESSAGE SI BLOQUÉ -->
+  <div id="locked" class="locked" hidden>
+    <div class="locked-card">
+      <h2>Accès refusé</h2>
+      <p>Vous devez terminer la formation (validation du dernier QCM) pour obtenir le certificat.</p>
+      <a class="btn primary" href="home.html">Retour à la formation</a>
+    </div>
+  </div>
+
+  <!-- CERTIFICAT -->
+  <main id="content" class="page" hidden>
+    <div class="sheet" id="printArea" aria-label="Certificat imprimable A4">
+      <div class="sheet-bg"></div>
+
+      <div class="sheet-inner">
+        <!-- En-tête -->
+        <div class="sheet-header">
+          <div class="brand">
+            <div class="logo-box" aria-hidden="true"></div>
+            <div class="brand-text">
+              <div class="brand-name">Demain Autrement</div>
+              <div class="brand-sub">Cahier des transitions</div>
+            </div>
+          </div>
+
+          <div class="doc-meta">
+            <div><span class="meta-label">Référence :</span> <span class="meta-value" id="certRef"></span></div>
+            <div><span class="meta-label">Date :</span> <span class="meta-value" id="certDate"></span></div>
+          </div>
+        </div>
+
+        <!-- Titre -->
+        <div class="title-block">
+          <div class="pill">Attestation de réussite</div>
+          <h1>CERTIFICAT DE FORMATION</h1>
+          <p class="subtitle">
+            Ce document atteste que le/la participant(e) ci-dessous a complété l’intégralité du parcours
+            et validé l’évaluation finale.
+          </p>
+        </div>
+
+        <!-- Nom -->
+        <div class="name-block">
+          <div class="name-label">Délivré à</div>
+          <div class="name-value" id="fullName">Prénom NOM</div>
+        </div>
+
+        <!-- Détails -->
+        <section class="details">
+          <div class="details-col">
+            <div class="row"><span class="k">Formation :</span> <span class="v">Culture Énergie &amp; Optimisation</span></div>
+            <div class="row"><span class="k">Modalité :</span> <span class="v">E-learning</span></div>
+            <div class="row"><span class="k">Validation :</span> <span class="v">QCM final réussi</span></div>
+          </div>
+
+          <div class="details-col">
+            <div class="row"><span class="k">Organisme :</span> <span class="v">Demain Autrement</span></div>
+            <div class="row"><span class="k">Formateur :</span> <span class="v">Dr. Dhaker ABBES</span></div>
+            <div class="row"><span class="k">ID Certificat :</span> <span class="v mono" id="certId"></span></div>
+          </div>
+        </section>
+
+        <!-- Pied -->
+        <div class="sheet-footer">
+          <div class="sign">
+            <div class="sign-line"></div>
+            <div class="sign-who">Signature / Organisme</div>
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <div class="seal-inner">
+              <div class="seal-top">CERTIFIÉ</div>
+              <div class="seal-mid">FORMATION</div>
+              <div class="seal-bot">OFFICIEL</div>
+            </div>
+          </div>
+
+          <div class="sign">
+            <div class="sign-line"></div>
+            <div class="sign-who">Formateur</div>
+          </div>
+        </div>
+
+        <div class="fineprint">
+          Toute falsification ou reproduction non autorisée est interdite. Référence unique ci-dessus.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // --- Gating : accès uniquement si formation terminée ---
+    const unlocked = localStorage.getItem("certUnlocked") === "1";
+    const lockedEl = document.getElementById("locked");
+    const contentEl = document.getElementById("content");
+
+    if (!unlocked) {
+      lockedEl.hidden = false;
+      contentEl.hidden = true;
+    } else {
+      lockedEl.hidden = true;
+      contentEl.hidden = false;
+    }
+
+    function makeRef() {
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      const rnd = Math.random().toString(16).slice(2, 8).toUpperCase();
+      return `CERT-${y}${m}${day}-${rnd}`;
+    }
+
+    function setMeta() {
+      const d = new Date();
+      document.getElementById("certDate").textContent =
+        d.toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" });
+
+      let ref = localStorage.getItem("certRef");
+      if (!ref) {
+        ref = makeRef();
+        localStorage.setItem("certRef", ref);
+      }
+      document.getElementById("certRef").textContent = ref;
+      document.getElementById("certId").textContent = ref;
+    }
+
+    function preloadName() {
+      const first = localStorage.getItem("certFirstName") || "";
+      const last = localStorage.getItem("certLastName") || "";
+
+      document.getElementById("firstName").value = first;
+      document.getElementById("lastName").value = last;
+
+      if (first && last) {
+        document.getElementById("fullName").textContent = `${first} ${last.toUpperCase()}`;
+      } else {
+        document.getElementById("fullName").textContent = "Prénom NOM";
+      }
+    }
+
+    function applyName() {
+      const first = (document.getElementById("firstName").value || "").trim();
+      const last = (document.getElementById("lastName").value || "").trim();
+
+      if (!first || !last) {
+        alert("Merci de renseigner votre prénom et votre nom.");
+        return;
+      }
+
+      localStorage.setItem("certFirstName", first);
+      localStorage.setItem("certLastName", last);
+
+      document.getElementById("fullName").textContent = `${first} ${last.toUpperCase()}`;
+    }
+
+    // Entrée = met à jour
+    document.addEventListener("keydown", (e) => {
+      if (!unlocked) return;
+      if (e.key === "Enter") {
+        const active = document.activeElement;
+        if (active && (active.id === "firstName" || active.id === "lastName")) {
+          e.preventDefault();
+          applyName();
+        }
+      }
+    });
+
+    if (unlocked) {
+      setMeta();
+      preloadName();
+    }
+  </script>
+</body>
+</html>
