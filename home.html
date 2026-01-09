@@ -17,20 +17,34 @@
   const QCM_BY_MODULE = {
     1: {
       title: "Quiz - Module 0",
-      pass: 2,
+      pass: 5,
       questions: [
-        { q: "Une facture d'électricité dépend principalement :", a: ["Du soleil", "De la consommation (kWh)", "De la couleur du compteur"], correct: 1 },
-        { q: "Le kWh correspond à :", a: ["Une puissance", "Une énergie", "Une tension"], correct: 1 },
-        { q: "Le prix peut varier selon :", a: ["L'offre/contrat", "La taille du frigo", "La météo uniquement"], correct: 0 }
+        { q: "Qu’est-ce qu’un marché de l’énergie ? ", a: ["Un système où seuls les États échangent de l’électricité", "Un espace d’échanges entre producteurs, fournisseurs et consommateurs", "Un service gratuit géré par l’État","Une plateforme réservée aux producteurs d’énergies renouvelables"], correct: 1 },
+        { q: "Pourquoi dit-on que l’électricité est une énergie “particulière” ?", a: ["Parce qu’elle ne peut pas être stockée facilement", "Parce qu’elle coûte plus cher à produire que le gaz", "Parce qu’elle est produite uniquement en France","Parce qu’elle ne peut pas être vendue à l’étranger"], correct: 0 },
+        { q: "Quel était le rôle d’EDF avant l’ouverture du marché ?", a: ["Fournisseur privé en concurrence avec d’autres acteurs", "Entreprise publique en situation de monopole", "Régulateur du marché européen","Producteur indépendant "], correct: 1 },
+        { q: "En quelle année le marché de l’énergie a-t-il été ouvert à tous les consommateurs particuliers ?",a:["1996", "2000", "2007", "2012"], correct: 2 },
+        { q: "Quel est le rôle principal de la CRE (Commission de Régulation de l’Énergie) ?",a:["Fixer le prix du pétrole", "Surveiller et encadrer le marché de l’énergie", "Distribuer l’électricité aux ménages", "Subventionner les énergies renouvelables"], correct: 1 },
+        { q: "Quelle est la différence entre un transporteur et un distributeur d’énergie ?",a:["Le transporteur produit l’énergie, le distributeur la vend", "Le transporteur gère les réseaux haute tension, le distributeur les réseaux locaux", "Le transporteur collecte les taxes, le distributeur gère la facturation", "Il n’y a pas de différence"], correct: 1 },
+        { q: "Que permet la libéralisation du marché de l’énergie ?",a:["L’accès à un seul fournisseur public", "La possibilité de choisir son fournisseur", "La suppression des taxes énergétiques", "La gratuité de l’énergie pour les ménages "], correct: 1 },
+        { q: "Pourquoi l’énergie reste-t-elle un secteur régulé malgré l’ouverture du marché ?",a:["Pour garantir la stabilité du système et protéger les consommateurs", "Pour maintenir le monopole d’EDF", "Parce que le marché ne fonctionne pas", "Pour interdire les énergies renouvelables"], correct: 0 },
+        { q: "Quels sont deux grands enjeux actuels du marché de l’énergie ?",a:["Le tourisme énergétique et la privatisation", "La transition énergétique et la sécurité d’approvisionnement", "L’importation de charbon et la réduction des taxes", "La hausse des dividendes des producteurs "], correct: 1 },
+        { q: " Que représente le marché européen de l’électricité ?",a:["Un marché isolé par pays", "Un système d’échanges interconnectés entre pays", "Un réseau de centrales nucléaires européennes", "Un marché réservé à la France"], correct: 1 }
       ]
     },
     2: {
       title: "Quiz - Module 1",
-      pass: 2,
+      pass: 5,
       questions: [
-        { q: "La puissance souscrite s'exprime généralement en :", a: ["kVA", "kWh", "€"], correct: 0 },
-        { q: "Le TURPE correspond :", a: ["À une taxe", "Au tarif d’acheminement", "À un type de panneau solaire"], correct: 1 },
-        { q: "Le kWh sur la facture représente :", a: ["L'énergie consommée", "La puissance maximale", "La fréquence"], correct: 0 }
+        { q: "Quelle est la principale différence entre le poste “Énergie” et le poste “Acheminement (TURPE)” ?", a: ["L’énergie correspond à la production d’électricité, le TURPE à la consommation.", "L’énergie correspond au coût du kWh consommé, le TURPE finance le transport et la distribution.", "Le TURPE inclut uniquement les taxes locales.","Les deux représentent la même chose."], correct: 1 },
+        { q: "Que signifie l’acronyme TURPE ?", a: ["Tarif Unique de Répartition des Prix de l’Électricité", "Tarif d’Utilisation des Réseaux Publics d’Électricité ", "Taux Unitaire de Répartition de l’Énergie","Taxe d’Usage du Réseau Public d’Énergie"], correct: 1 },
+        { q: "Quelles sont les principales composantes du TURPE ? ", a: ["Production, transport, distributio", "Fourniture, taxes, TVA", "Soutirage, comptage, gestion, prestations techniques","Puissance, énergie, marge fournisseur"], correct: 2 },
+        { q: "Qu’est-ce que l’accise (ex CSPE / TICFE) ?", a: ["Une réduction sur la facture pour les sites industriel", "Une taxe sur la consommation d’électricité collectée par le fournisseur", "Une contribution versée à Enedis","Une prime d’autoconsommation"], correct: 1 },
+        { q: "Depuis août 2025, quel changement majeur s’applique à la TVA sur l’électricité ?", a: ["Le taux réduit de 5,5 % s’applique à tous les postes", "La TVA a été supprimée pour les particulier", "Un taux unique de 20 % s’applique à tous les éléments de la facture","La TVA varie selon le fournisseur"], correct: 2 },
+        { q: "Sur quelle base est calculée la CTA (Contribution Tarifaire d’Acheminement) ?", a: ["Sur la consommation annuelle (kWh)", "Sur la part fixe du TURPE (abonnement)", "Sur les taxes locales","Sur la puissance maximale souscrite"], correct: 1 },
+        { q: "Quelle part le TURPE peut-il représenter sur une facture TTC ? ", a: ["5 à 10 %", "10 à 25 %", "25 à 40 %","60 à 70 %"], correct: 2 },
+        { q: "Quels sont deux leviers d’optimisation possibles sans changer de fournisseur ?", a: ["Augmenter la puissance souscrite et réduire les heures pleines", "Ajuster la puissance souscrite et mieux répartir la consommation entre heures pleines/creuses", "Supprimer les taxes et la TVA","Passer à un autre réseau de distribution"], correct: 1 },
+        { q: "Quelle erreur est fréquente lors de l’analyse d’une facture ? ", a: ["Confondre HT et TTC", "Payer deux fois la même facture", "Oublier de noter le numéro de clien","Changer de fournisseur trop souvent"], correct: 0 },
+        { q: " Pourquoi un ingénieur en énergie doit-il comprendre une facture d’électricité ? ", a: ["Pour apprendre à négocier les tarifs réglementés", "Pour identifier les leviers d’efficacité énergétique et d’optimisation des coûts", "Pour suivre la réglementation fiscale","Pour pouvoir revendre de l’électricité"], correct: 1 }
       ]
     },
     3: {
@@ -44,20 +58,33 @@
     },
     4: {
       title: "Quiz - Module 3",
-      pass: 2,
+      pass: 5,
       questions: [
-        { q: "Réduire la puissance souscrite permet :", a: ["De baisser l’abonnement", "De baisser automatiquement la consommation", "De produire plus"], correct: 0 },
-        { q: "Un dépassement de puissance peut causer :", a: ["Des coupures/délestage", "Plus de soleil", "Une hausse de tension permanente"], correct: 0 },
-        { q: "Optimiser la consommation, c’est :", a: ["Déplacer certains usages", "Toujours consommer plus la nuit", "Changer de couleur de câble"], correct: 0 }
+        { q: "La puissance souscrite correspond à : ", a: ["L’énergie totale consommée sur l’année", "La puissance maximale que peut délivrer le réseau à un site sans disjonction", "La puissance appelée moyenne en journée","La somme de toutes les puissances des appareils installés"], correct: 1 },
+        { q: "Que se passe-t-il si la puissance appelée dépasse la puissance souscrite ? ", a: ["Rien, cela n’a aucun effet", "Le fournisseur augmente automatiquement l’abonnement", "Le disjoncteur principal coupe l’alimentation (ou facturation de dépassement pour les pros)","La facture diminue"], correct: 2 },
+        { q: "Les plages horaires des Heures Pleines et Heures Creuses sont :", a: [" Fixées librement par le client", "Identiques pour toute la France", "Déterminées par Enedis selon la commune","Décidées chaque jour par le fournisseur"], correct: 2 },
+        { q: "L’intérêt principal du tarif HP/HC est de : ", a: ["Augmenter la facture d’électricité", "Réduire le coût de l’électricité en déplaçant une partie de la consommation la nuit", "Rendre le réseau plus instable","Encourager la surconsommation"], correct: 1 },
+        { q: "L’effacement de consommation consiste à :", a: ["Augmenter temporairement la puissance souscrite", "Réduire volontairement la consommation sur certaines périodes", "Changer de fournisseur","Installer une batterie de stockage"], correct: 1 },
+        { q: "Quel acteur est responsable de la coordination nationale des programmes d’effacement ?", a: ["Enedis", "La CRE", "RTE","L’ADEME"], correct: 2 },
+        { q: "La gestion de charge consiste à :", a: ["Déplacer, prioriser ou limiter certains usages électriques selon le moment de la journée", "Augmenter la puissance appelée à chaque instant", "Couper complètement l’alimentation électrique","Utiliser uniquement de l’énergie renouvelable"], correct: 0 },
+        { q: "Une entreprise a une puissance souscrite de 36 kVA, mais ses pics quotidiens atteignent en moyenne 28 kVA. Quelle stratégie est la plus logique ? ", a: ["Augmenter la puissance à 40 kVA", "Réduire la puissance souscrite à 30 kVA", "Ne rien changer","Supprimer les heures creuses"], correct: 1 },
+        { q: "Un client consomme 60 % de son énergie en heures pleines et 40 % en heures creuses. Le tarif HP est de 0,22 €/kWh et le tarif HC de 0,16 €/kWh. Quel est son prix moyen du kWh ?", a: ["0,18 €/kWh", "0,19 €/kWh", "0,20 €/kWh","0,21 €/kWh"], correct: 2 }
       ]
     },
     5: {
       title: "Quiz - Module 4",
-      pass: 2,
+      pass: 5,
       questions: [
-        { q: "L’autoconsommation signifie :", a: ["Consommer sa propre production", "Revendre toute sa production", "Ne plus être raccordé au réseau"], correct: 0 },
-        { q: "Une énergie renouvelable :", a: ["Se renouvelle à l’échelle humaine", "Est toujours gratuite", "N’a aucun impact"], correct: 0 },
-        { q: "Un onduleur sert à :", a: ["Convertir DC en AC", "Stocker l’énergie", "Augmenter la fréquence"], correct: 0 }
+        { q: "Qu’appelle-t-on autoconsommation ?", a: ["Le fait de vendre toute sa production d’électricité.", "Le fait de consommer sur place une partie de sa production électrique", "Le fait de consommer uniquement la nuit.", "Le fait de stocker toute sa production dans des batteries."], correct: 1 },
+        { q: "Quelle est la formule du taux d’autoconsommation (TAC) ?", a: ["TAC = (Production consommée / Consommation totale) × 100", "TAC = (Production consommée / Production totale) × 100 ", "TAC = (Production totale / Consommation totale) × 100","TAC = (Production consommée + Production injectée) / Consommation totale"], correct: 1 },
+        { q: "Si un bâtiment produit 8 000 kWh/an et consomme 12 000 kWh/an, dont 5 000 kWh directement consommés, quel est son taux d’autoproduction (TAP) ?", a: ["62,5 %", "66,6 %", "41,6 %"], correct: 3 },
+        { q: "Que devient l’électricité produite mais non consommée immédiatement ?", a: ["Elle est perdue", "Elle est stockée automatiquement", "Elle est injectée sur le réseau.", "Elle est utilisée pour recharger les batteries des véhicules électriques voisins"], correct: 2 },
+        { q: "Quels sont les trois grands types d’autoconsommation ?", a: ["Individuelle, partagée et communautaire", "Totale, partielle avec injection et collective", "Résidentielle, tertiaire et industrielle.", "Locale, régionale et nationale"], correct: 1 },
+        { q: "Quel outil permet d’estimer la production annuelle d’une installation photovoltaïque ?", a: ["MeteoFrance", "PVGIS", "PVCalc Excel", "MySolar"], correct: 1 },
+        { q: "Quels sont les deux principaux leviers pour augmenter le taux d’autoconsommation ?", a: ["Produire plus et consommer moins", "Adapter les usages et stocker l’énergie", "Injecter plus sur le réseau", "Augmenter la puissance installée"], correct: 1 },
+        { q: "Dans un projet photovoltaïque, quel élément impacte le plus la rentabilité ? ", a: ["Le taux d’autoconsommation", "Le prix du panneau solaire uniquement", "La couleur des modules", "La longueur du câble d’onduleur"], correct: 0 },
+        { q: "Quelle aide financière soutient aujourd’hui les projets en autoconsommation résidentielle ?", a: ["La prime à l’autoconsommation", "Le bonus écologique", "Le crédit d’impôt transition énergétique", "Le crédit d’impôt transition énergétique"], correct: 0 },
+        { q: "Lors d’une simulation PVGIS pour un site à Lille (6 kWc, sud, 35°), la production estimée est de 6 200 kWh/an. Si 60 % de cette production est autoconsommée et le prix de l’électricité est 0,20 €/kWh, quelle est l’économie annuelle ? ", a: ["744 € ", "620 €", "930 €", "1 240 €"], correct: 0 }
       ]
     },
     6: {
@@ -290,10 +317,8 @@ function resetProgressDemo() {
 
           <h3 class="module-title" data-module="1">MODULE 0 : Introduction du marché de l'énergie</h3>
           <ul class="lessons" data-module="1">
-            <li><a href="#">Leçon</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Etude de cas</a></li>
-            <li><a href="#">Etude de cas corrigée</a></li>
+            <li><a href="module0/cours0.pptx">Leçon</a></li>
+            <li><a href="module0/Vidéo cours 0.mp4">Video</a></li>
             <button type="button" onclick="openQcm(1)">Module terminé</button>
           </ul>
 
@@ -316,19 +341,19 @@ function resetProgressDemo() {
 
           <h3 class="module-title" data-module="4">MODULE 3 : Optimiser la consommation et la puissance souscrite</h3>
           <ul class="lessons" data-module="4">
-            <li><a href="#">Leçon</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Etude de cas</a></li>
-            <li><a href="#">Etude de cas corrigée</a></li>
+            <li><a href="module3/Diapo Cours3.pptx">Leçon</a></li>
+            <li><a href="module3/Vidéo Puissance souscrite.mp4">Video</a></li>
+            <li><a href="module3/TD3.docx">Etude de cas</a></li>
+            <li><a href="module3/TD3 - Corrigé.docx">Etude de cas corrigée</a></li>
             <button type="button" onclick="openQcm(4)">Module terminé</button>
           </ul>
 
           <h3 class="module-title" data-module="5">MODULE 4 : Autoconsommation et renouvelables</h3>
           <ul class="lessons" data-module="5">
-            <li><a href="#">Leçon</a></li>
-            <li><a href="#">Video</a></li>
-            <li><a href="#">Etude de cas</a></li>
-            <li><a href="#">Etude de cas corrigée</a></li>
+            <li><a href="module4/Diapo Cours4.pptx">Leçon</a></li>
+            <li><a href="module4/Vidéo Autoconsomation.mp4">Video</a></li>
+            <li><a href="module4/TD - PVGIS.docx">Etude de cas</a></li>
+            <li><a href="module4/TD - PVGIS corrigé.docx">Etude de cas corrigée</a></li>
             <button type="button" onclick="openQcm(5)">Module terminé</button>
           </ul>
 
