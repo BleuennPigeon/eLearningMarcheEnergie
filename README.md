@@ -1,1 +1,1 @@
-Afin d'acceder à l'exercice, ouvrez le fichier factureQCM.html.
+Afin d'acceder au site, ouvrez home.html.
