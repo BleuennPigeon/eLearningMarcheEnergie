@@ -26,13 +26,17 @@ body {
   gap:16px;
 }
 
-.logo{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 50% 50%, #2c7bbf 0 52%, #f6c400 53% 100%);
-  flex: 0 0 auto;
+.logo {
+  width: 90px;
+  height: 90px;
+  background-image: url("../image/logo_vf.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .brand-text-left{
